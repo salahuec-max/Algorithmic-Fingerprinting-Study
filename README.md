@@ -1,22 +1,20 @@
-# Algorithmic Fingerprinting in Computational Photography
-**Longitudinal Study of Sub-Pixel Imaging Artifacts: iPhone vs. Samsung Ecosystems**
+Algorithmic Fingerprinting in Computational Photography
+Longitudinal Study of Sub-Pixel Imaging Artifacts: iPhone vs. Samsung Ecosystems
+Overview
+This repository contains the digital signal processing (DSP) pipeline used to identify and quantify deterministic noise and algorithmic artifacts in mobile imaging sensors. Originally developed for high-precision characterization of quantum-based sensor noise, this framework has been adapted to isolate vendor-specific "algorithmic fingerprints" in the iPhone and Samsung Galaxy ecosystems.
 
-## Overview
-This repository contains the digital signal processing (DSP) pipeline and analysis scripts used to identify and filter deterministic noise in quantum-based environmental sensors. 
+Key Methodology
+Spectral Analysis: Fast Fourier Transform (FFT) with a Hanning window to expose periodic grid artifacts (GAS).
 
-### Key Methodology
-* **Signal Capture:** 60s sampling @ 1000Hz (60,000 samples).
-* **Spectral Analysis:** Fast Fourier Transform (FFT) with a Hanning window.
-* **Noise Mitigation:** Suppression of 50Hz power-line coupling and mechanical harmonics.
-* **Entropy Distillation:** Von Neumann unbiasing for cryptographic-quality randomness.
+Deterministic Noise Extraction: Identification of non-stochastic sub-pixel variations across 1423x2919 and 3000x3702 matrices.
 
-## Repository Structure
-- `analysis.py`: Main Python script for FFT and signal characterization.
-- `Dockerfile`: Container configuration for environment reproducibility.
-- `raw_data.csv`: (Placeholder) Sample sensor data logs.
+Statistical Decomposition: Automated calculation of Kurtosis, Skewness, and the Computational Photography Artifacts Index (CPAI).
 
-## Reproducibility
-To run the analysis via Docker:
-```bash
-docker build -t quantum-noise-analysis .
-docker run quantum-noise-analysis
+Forensic Modeling: Distinguishing between standard ISP output (iPhone Deep Fusion) and generative AI synthesis (Samsung S25 Ultra).
+
+Repository Structure
+analysis.py: Main Python script implementing the Fourier-based forensic pipeline.
+
+Dockerfile: Container configuration for full environmental reproducibility (consistent with Scientific Reports standards).
+
+raw_data.csv: Normalized statistical metadata extracted from the study's longitudinal image database.
