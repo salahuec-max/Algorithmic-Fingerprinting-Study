@@ -71,6 +71,5 @@ if __name__ == "__main__":
 Reproducibility
 To run the analysis via Docker:
 
-Bash
 docker build -t forensic-analysis .
 docker run forensic-analysis
